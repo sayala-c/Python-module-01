@@ -40,22 +40,33 @@ class Plant:
         return self._name
 
 
-def ft_garden_security() -> None:
-    rose = Plant("Rose", 15.0, 10, 0)
+class Flower(Plant):
+    def __init__(self, name: str, height: float, age: int, growth: float, color: str) -> None:
+        super().__init__(name, height, age, growth)
+        self.color = color
 
-    print("Plant created: ", end="")
-    rose.show()
-    print()
-    rose.set_height(-5)
-    rose.set_age(4)
-    print()
-    print(
-        f"Current state: {rose.get_name()}: "
-        f"{round(rose.get_height(), 1)}cm, "
-        f"{rose.get_age()} days old"
-    )
+    def bloom(self) -> None:
+        print(
+            "Rose has not bloomed yet"
+            "[Asking the rose to bloom]"
+        )
+        self.show()
 
 
-if __name__ == "__main__":
-    print("=== Garden Security System ===")
-    ft_garden_security()
+class Tree(Plant):
+    def __init__(self, name: str, height: float, age: int, growth: float, trunk_diameter: float) -> None:
+        super().__init__(name, height, age, growth)
+        self.trunk_diameter = trunk_diameter
+
+    def produce_shade(self) -> None:
+        pass
+
+
+class Vegetable(Plant):
+    def __init__(self, name: str, height: float, age:  int, growth: float, harves_season: str, nutritional_value: int) -> None:
+        super().__init__(name, height, age, growth)
+        self.harvest_season = harves_season
+        self.nutrition = nutritional_value
+
+    def update_nutri(self) -> None:
+        pass
