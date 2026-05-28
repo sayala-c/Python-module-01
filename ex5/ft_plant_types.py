@@ -13,7 +13,8 @@ class Plant:
         self._age += 1
 
     def show(self) -> None:
-        print(f"{self._name}: {round(self._height, 1)}cm, {self._age} days old")
+        print(f"{self._name}: {round(self._height, 1)}cm, "
+              f"{self._age} days old")
 
     def set_height(self, new_height: float) -> None:
         if new_height < 0:
