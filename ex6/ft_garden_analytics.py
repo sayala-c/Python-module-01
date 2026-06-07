@@ -1,6 +1,6 @@
 class Plant:
     class Stats:
-        def __init__(self, grow_calls: int, age_calls: int, show_calls: int)
+        def __init__(self, grow_calls: int, age_calls: int, show_calls: int) -> None:
             self._grow_calls = grow_calls
             self._age_calls = age_calls
             self._show_calls = show_calls
@@ -65,6 +65,8 @@ class Flower(Plant):
                  color: str) -> None:
         super().__init__(name, height, age, growth)
         self.color = color
+        self._has_bloomed = True
+        
 
     def show(self) -> None:
         super().show()
@@ -81,6 +83,7 @@ class  Seed(Flower):
     def __init__(self, name: str, height: float, age: int, growth: float, color: str, seeds: int) -> None:
         super().__init__(name, height, age, growth, color)
         self.seeds = seeds
+
     def show(self) -> None:
 
 
