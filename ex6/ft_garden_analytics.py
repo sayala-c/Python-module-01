@@ -65,28 +65,40 @@ class Flower(Plant):
                  color: str) -> None:
         super().__init__(name, height, age, growth)
         self.color = color
-        self._has_bloomed = True
-        
+        self._has_bloomed = False
 
     def show(self) -> None:
         super().show()
         print(f" Color: {self.color}")
+        if not self._has_bloomed:
+            print(f"{self._name} has not bloomed yet")
+        else:
+            print(f"{self._name} is blooming beautifully!")
 
     def bloom(self) -> None:
-        print(f" {self._name} has not bloomed yet\n"
-              "[asking the rose to bloom]")
-        self.show()
-        print(f" {self._name} is blooming beautifully!")
-    
+        self._has_bloomed = True
+        print(f"[asking the {self._name} to grow and bloom]")
 
-class  Seed(Flower):
+
+class Seed(Flower):
     def __init__(self, name: str, height: float, age: int, growth: float, color: str, seeds: int) -> None:
         super().__init__(name, height, age, growth, color)
         self.seeds = seeds
 
     def show(self) -> None:
+        super().show()
+        if not self._has_bloomed:
+            print(f" {self._name} has not bloomed yet")
+            print(f" Seeds: {self.seeds}")
+        else:
+            print(f"{self._name}  is blooming beautifully!")
 
+    def bloom(self) -> None:
+        self._has_bloomed = True
+        print(f"[make {self._name} grow, age and bloom]")
+        print(f" Seeds: {self.seeds}")
 
+0
 class Tree(Plant):
     def __init__(self, name: str, height: float, age: int, growth: float,
                  trunk_diameter: float) -> None:
