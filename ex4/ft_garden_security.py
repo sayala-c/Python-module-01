@@ -1,18 +1,14 @@
+#!/usr/bin/env python3
+
 class Plant:
-    def __init__(self, name: str, height: float, age: int, growth: float) -> None:
+    def __init__(self, name: str, height: float, age: int) -> None:
         self._name = name
         self._height = height
         self._age = age
-        self._growth = growth
-
-    def grow(self) -> None:
-        self._height = self._height + self._growth
-
-    def age_update(self) -> None:
-        self._age += 1
 
     def show(self) -> None:
-        print(f"{self._name}: {round(self._height, 1)}cm, {self._age} days old")
+        print(f"{self._name}: {round(self._height, 1)}cm, "
+              f"{self._age} days old")
 
     def set_height(self, new_height: float) -> None:
         if new_height < 0:
@@ -41,13 +37,16 @@ class Plant:
 
 
 def ft_garden_security() -> None:
-    rose = Plant("Rose", 15.0, 10, 0)
+    rose = Plant("Rose", 15.0, 10)
 
     print("Plant created: ", end="")
     rose.show()
     print()
+    rose.set_height(25)
+    rose.set_age(30)
+    print()
     rose.set_height(-5)
-    rose.set_age(4)
+    rose.set_age(-4)
     print()
     print(
         f"Current state: {rose.get_name()}: "

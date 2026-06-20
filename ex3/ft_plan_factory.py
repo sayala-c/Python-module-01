@@ -1,27 +1,25 @@
+#!/usr/bin/env python3
+
 class Plant:
-    def __init__(self, name: str, height: float, age: int, growth: float) -> None:
+    def __init__(self, name: str, height: float, age: int) -> None:
         self.name = name
         self.height = height
         self.age = age
-        self.growth = growth
-
-    def grow(self) -> None:
-        self.height = self.height + self.growth
 
     def age_update(self) -> None:
         self.age += 1
 
     def show(self) -> None:
-        print(f"{self.name}: {round(self.height, 1)} cm, {self.age} days old")
+        print(f"{self.name}: {round(self.height, 1)}cm, {self.age} days old")
 
 
 def ft_plant_factory() -> None:
     my_garden: list[Plant] = [
-        Plant("Rose", 25, 30, 0),
-        Plant("Oak", 200, 365, 0),
-        Plant("Cactus", 5, 90, 0),
-        Plant("Sunflower", 80, 45, 0),
-        Plant("Fern", 15, 120, 0)
+        Plant("Rose", 25.0, 30),
+        Plant("Oak", 200.0, 365),
+        Plant("Cactus", 5.0, 90),
+        Plant("Sunflower", 80.0, 45),
+        Plant("Fern", 15.0, 120)
         ]
 
     for planta in my_garden:
